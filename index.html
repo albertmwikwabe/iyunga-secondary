@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iyunga Secondary School | Mbeya</title>
+
+    <meta name="description"
+          content="Official-style website for Iyunga Secondary School, Mbeya, Tanzania.">
+
+    <style>
+        /* =========================================================
+           CSS - IYUNGA SECONDARY SCHOOL
+           ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #10075e;
+            --primary-dark: #273d04;
+            --secondary: #00f45e;
+            --light: #f6f5f8;
+            --white: #ffffff;
+            --dark: #17231b;
+            --gray: #6e6673;
+            --border: #e2dce5;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background: var(--primary-dark);
+            color: white;
+            padding: 8px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-bar span {
+            margin-right: 20px;
+        }
+
+        /* NAVIGATION */
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            border: 4px solid var(--secondary);
+        }
+
+        .logo-text h2 {
+            color: var(--primary);
+            font-size: 19px;
+        }
+
+        .logo-text small {
+            color: var(--gray);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: #27352c;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(
+                    rgba(4, 61, 30, 0.82),
+                    rgba(4, 61, 30, 0.82)
+                ),
+                linear-gradient(135deg, #075e2d, #0b7d3d);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            background: var(--secondary);
+            color: #1e1e1e;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 750px;
+            margin: auto;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: #222;
+        }
+
+        .btn-primary:hover {
+            background: #ffd05a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 80px 6%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #526057;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            border-left: 6px solid var(--secondary);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item strong {
+            color: var(--primary);
+        }
+
+        /* CARDS */
+        .cards {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            background: #e4f2e9;
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--gray);
+        }
+
+        /* STATISTICS */
+        .stats {
+            background: var(--primary);
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat h2 {
+            color: var(--secondary);
+            font-size: 42px;
+        }
+
+        .stat p {
+            font-size: 15px;
+        }
+
+        /* PROGRAMMES */
+        .programmes {
+            background: white;
+        }
+
+        .programme-card {
+            background: #f7faf8;
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .programme-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .programme-card ul {
+            padding-left: 20px;
+            color: var(--gray);
+        }
+
+        /* NEWS */
+        .news-card {
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .news-image {
+            height: 180px;
+            background: linear-gradient(135deg, #075e2d, #19a65a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 55px;
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-date {
+            color: #9a9a9a;
+            font-size: 13px;
+        }
+
+        /* TABLE */
+        .table-wrapper {
+            max-width: 1100px;
+            margin: auto;
+            overflow-x: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+        }
+
+        tr:hover td {
+            background: #f5faf7;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background: #eef5f0;
+        }
+
+        .contact-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .contact-box h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-line {
+            margin-bottom: 15px;
+        }
+
+        .contact-line strong {
+            color: var(--primary);
+        }
+
+        form input,
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            font: inherit;
+            outline: none;
+        }
+
+        form input:focus,
+        form textarea:focus,
+        form select:focus {
+            border-color: var(--primary);
+        }
+
+        form textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #032c16;
+            color: white;
+            padding: 55px 6% 20px;
+        }
+
+        .footer-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer li {
+            color: #c7d3cb;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            max-width: 1150px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+            color: #aebbb2;
+        }
+
+        /* BACK TO TOP */
+        #backToTop {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: #222;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: white;
+                display: none;
+                flex-direction: column;
+                padding: 25px 6%;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .about-grid,
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .top-bar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero {
+                min-height: 570px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat h2 {
+                font-size: 32px;
+            }
+
+            .logo-text h2 {
+                font-size: 15px;
+            }
+
+            .logo-text small {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+    <header>
+        <nav class="navbar">
+
+            <a href="#home" class="logo">
+                <div class="logo-icon">IYS</div>
+
+                <div class="logo-text">
+                    <h2>IYUNGA SECONDARY SCHOOL
+                </div>
+            </a>
+
+            <div class="menu-btn" id="menuBtn">
+                ☰
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#programmes">Programmes</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="form.html">student management</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+            </span>
+
+            <h1>
+                Iyunga <span>Secondary School</span>
+            </h1>
+
+            <p>
+                Welcome to Iyunga Secondary School — quality education, technical skills, discipline is our best inheritance.
+    
+            </p>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         ABOUT
+         ========================================================= -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Iyunga Secondary School</h2>
+            <p>
+                Learn more about our school, location and educational
+                environment.
+            </p>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <h3>Welcome to Iyunga</h3>
+
+                <p>
+                    Iyunga Secondary School is a government secondary
+                    school located in Mbeya City, Tanzania.
+                </p>
+
+                <p>
+                    The school provides secondary education while also
+                    emphasizing technical and practical skills that
+                    prepare students for further education, employment
+                    and self-reliance.
+                </p>
+
+                <p>
+                    Our goal is to provide an environment where students
+                    can develop academically, socially, morally and
+                    practically.
+                </p>
+
+                <a href="#contact" class="btn btn-primary">
+                    Get in Touch
+                </a>
+
+            </div>
+
+            <div class="info-card">
+
+                <div class="info-item">
+                    <strong>School</strong>
+                    <span>Iyunga Secondary School</span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Location</strong>
+                    <span>Mbeya, Tanzania</span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Ownership</strong>
+                    <span>Government</span>
+                </div>
+
+                <div class="info-item">
+                    <strong>P.O. Box</strong>
+                    <span>701, Mbeya</span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Email</strong>
+                    <span>iyungasecondary@gmail.com</span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Phone</strong>
+                    <span>0747012682</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCHOOL VALUES
+         ========================================================= -->
+    <section style="background:white;">
+
+        <div class="section-title">
+            <h2>Our Core Values</h2>
+            <p>
+                Principles that guide our students and the entire
+                school community.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>Academic Excellence</h3>
+                <p>
+                    We encourage students to work hard and achieve
+                    their highest academic potential.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Technical Skills</h3>
+                <p>
+                    Practical learning helps students develop useful
+                    skills for their future.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Discipline</h3>
+                <p>
+                    We promote responsibility, respect, integrity and
+                    positive behaviour.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>Innovation</h3>
+                <p>
+                    Students are encouraged to think creatively and
+                    solve problems.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌱</div>
+                <h3>Leadership</h3>
+                <p>
+                    We prepare young people to become responsible
+                    leaders in society.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🇹🇿</div>
+                <h3>Patriotism</h3>
+                <p>
+                    We encourage students to contribute positively
+                    to Tanzania and their communities.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+            
+
+
+    <!-- =========================================================
+         ACADEMICS
+         ========================================================= -->
+    <section id="academics">
+
+        <div class="section-title">
+            <h2>Academic Departments</h2>
+            <p>
+                Areas supporting the academic and practical development
+                of our students.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🔬</div>
+                <h3>Science</h3>
+                <p>
+                    Physics, Chemistry, Biology and related scientific
+                    subjects.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📐</div>
+                <h3>Mathematics</h3>
+                <p>
+                    Mathematics education focused on logical thinking,
+                    problem solving and application.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Languages</h3>
+                <p>
+                    English, Kiswahili and communication skills that
+                    support effective learning.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>ICT</h3>
+                <p>
+                    Digital literacy and computer-based learning for
+                    today's technological environment.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛠️</div>
+                <h3>Technical Education</h3>
+                <p>
+                    Practical technical education and vocational skills
+                    for self-reliance.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌍</div>
+                <h3>Social Sciences</h3>
+                <p>
+                    Subjects that help students understand society,
+                    history, geography and citizenship.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         TECHNICAL PROGRAMMES
+         ========================================================= -->
+    <section class="programmes" id="programmes">
+
+        <div class="section-title">
+            <h2>Technical Programmes</h2>
+            <p>
+                Technical programmes associated with Iyunga Technical
+                Secondary School include practical vocational areas.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="programme-card">
+                <h3>⚡ Electrical Installation</h3>
+                <ul>
+                    <li>Electrical installation</li>
+                    <li>Practical workshop skills</li>
+                    <li>Safety procedures</li>
+                </ul>
+            </div>
+
+            <div class="programme-card">
+                <h3>🪚 Carpentry & Joinery</h3>
+                <ul>
+                    <li>Woodwork</li>
+                    <li>Furniture construction</li>
+                    <li>Workshop practice</li>
+                </ul>
+            </div>
+
+            <div class="programme-card">
+                <h3>💻 Computer Programming</h3>
+                <ul>
+                    <li>Computer fundamentals</li>
+                    <li>Programming concepts</li>
+                    <li>Digital skills</li>
+                </ul>
+            </div>
+
+            <div class="programme-card">
+                <h3>🧱 Masonry & Bricklaying</h3>
+                <ul>
+                    <li>Building techniques</li>
+                    <li>Construction practice</li>
+                    <li>Safety skills</li>
+                </ul>
+            </div>
+
+            <div class="programme-card">
+                <h3>🎨 Painting & Sign-Writing</h3>
+                <ul>
+                    <li>Painting techniques</li>
+                    <li>Design</li>
+                    <li>Sign-writing</li>
+                </ul>
+            </div>
+
+            <div class="programme-card">
+                <h3>🚗 Auto Body Repair</h3>
+                <ul>
+                    <li>Vehicle body work</li>
+                    <li>Repair techniques</li>
+                    <li>Workshop practice</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         NEWS
+         ========================================================= -->
+    <section id="news">
+
+        <div class="section-title">
+            <h2>School News & Announcements</h2>
+            <p>
+                Important information for students, parents and the
+                school community.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card news-card">
+
+                <div class="news-image">
+                    📢
+                </div>
+
+                <div class="news-content">
+                    <span class="news-date">
+                        School Announcement
+                    </span>
+
+                    <h3>Welcome to Iyunga Secondary School</h3>
+
+                    <p>
+                        Visit this section regularly for school
+                        announcements, events and important updates.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card news-card">
+
+                <div class="news-image">
+                    🎓
+                </div>
+
+                <div class="news-content">
+                    <span class="news-date">
+                        Academic Information
+                    </span>
+
+                    <h3>Academic Programmes</h3>
+
+                    <p>
+                        Students can access information about academic
+                        and technical learning programmes.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card news-card">
+
+                <div class="news-image">
+                    🏆
+                </div>
+
+                <div class="news-content">
+                    <span class="news-date">
+                        Student Development
+                    </span>
+
+                    <h3>Student Activities</h3>
+
+                    <p>
+                        Follow school activities, competitions,
+                        leadership and student development programmes.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCHOOL INFORMATION TABLE
+         ========================================================= -->
+    <section style="background:white;">
+
+        <div class="section-title">
+            <h2>School Information</h2>
+            <p>
+                General contact and identification information.
+            </p>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Information</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>School Name</td>
+                        <td>Iyunga Secondary School</td>
+                    </tr>
+
+                    <tr>
+                        <td>Region</td>
+                        <td>Mbeya</td>
+                    </tr>
+
+                    <tr>
+                        <td>District</td>
+                        <td>Mbeya City Council</td>
+                    </tr>
+
+                    <tr>
+                        <td>Address</td>
+                        <td>P.O. Box 701, Mbeya</td>
+                    </tr>
+
+                    <tr>
+                        <td>Email</td>
+                        <td>iyungasecondary@gmail.com</td>
+                    </tr>
+
+                    <tr>
+                        <td>Telephone</td>
+                        <td>0747012682</td>
+                    </tr>
+
+                    <tr>
+                        <td>Website</td>
+                        <td>iyungasecondary</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+         ========================================================= -->
+    <section class="contact-section" id="contact">
+
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>
+                Get in touch with Iyunga Secondary School.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-box">
+
+                <h3>School Contact Information</h3>
+
+                <div class="contact-line">
+                    <strong>📍 Address</strong><br>
+                    P.O. Box 701, Mbeya, Tanzania
+                </div>
+
+                <div class="contact-line">
+                    <strong>☎ Telephone</strong><br>
+                    0747012682
+                </div>
+
+                <div class="contact-line">
+                    <strong>✉ Email</strong><br>
+                    iyungasecondary@gmail.com
+                </div>
+
+                <div class="contact-line">
+                    <strong>🌐 Website</strong><br>
+                    iyungasecondary
+                </div>
+
+                <br>
+
+                <a
+    
+                </a>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <h3>Send Us a Message</h3>
+
+                <form id="contactForm">
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your Full Name"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Your Email Address"
+                        required
+                    >
+
+                    <select id="subject" required>
+                        <option value="">Select Subject</option>
+                        <option>Admission</option>
+                        <option>Academic Information</option>
+                        <option>Technical Programmes</option>
+                        <option>General Enquiry</option>
+                    </select>
+
+                    <textarea
+                        id="message"
+                        placeholder="Write your message..."
+                        required
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+                <h3>Iyunga Secondary School</h3>
+
+                <p>
+                    A school committed to quality education,
+                    technical skills, discipline is our inheritance
+                
+                </p>
+            </div>
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#programmes">Programmes</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </div>
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © <span id="year"></span>
+            Iyunga Secondary School. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTop" title="Back to top">
+        ↑
+    </button>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+    <script>
+
+        /* ---------------------------------------------------------
+           MOBILE MENU
+           --------------------------------------------------------- */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* Close mobile menu after clicking a link */
+
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* ---------------------------------------------------------
+           CONTACT FORM
+           --------------------------------------------------------- */
+
+        const contactForm = document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            if (
+                name.trim() === "" ||
+                email.trim() === "" ||
+                subject.trim() === "" ||
+                message.trim() === ""
+            ) {
+
+                alert("Please fill in all fields.");
+
+                return;
+            }
+
+            alert(
+                "Thank you, " +
+                name +
+                "! Your message has been received."
+            );
+
+            contactForm.reset();
+
+        });
+
+
+        /* ---------------------------------------------------------
+           BACK TO TOP
+           --------------------------------------------------------- */
+
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 400) {
+
+                backToTop.style.display = "block";
+
+            } else {
+
+                backToTop.style.display = "none";
+
+            }
+
+        });
+
+
+        backToTop.addEventListener("click", function() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* ---------------------------------------------------------
+           CURRENT YEAR
+           --------------------------------------------------------- */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* ---------------------------------------------------------
+           SIMPLE SCROLL ANIMATION
+           --------------------------------------------------------- */
+
+        const cards = document.querySelectorAll(".card");
+
+        const observer = new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.1
+            }
+        );
+
+
+        cards.forEach(function(card) {
+
+            card.style.opacity = "0";
+            card.style.transform = "translateY(25px)";
+            card.style.transition = "all 0.6s ease";
+
+            observer.observe(card);
+
+        });
+
+    </script>
+
+</body>
+</html>
+
