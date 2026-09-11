@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MUST Biological Specimen Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+
+<div id="loginPage" class="login-page">
+
+    <div class="login-box">
+
+        <div class="must-logo">
+            <div class="logo-circle">MUST</div>
+            <h2>Mbeya University</h2>
+            <p>of Science and Technology</p>
+        </div>
+
+        <h1>Biological Specimen</h1>
+        <p class="login-subtitle">Management System</p>
+
+        <form id="loginForm">
+
+            <input
+                type="text"
+                id="loginUsername"
+                placeholder="Username"
+                required
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                required
+            >
+
+            <select id="loginRole">
+                <option value="Admin">Admin</option>
+                <option value="Laboratory Technician">
+                    Laboratory Technician
+                </option>
+                <option value="Student">Student</option>
+                <option value="Lecturer">Lecturer</option>
+                <option value="HOD">Head of Department</option>
+            </select>
+
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+
+        </form>
+
+        <p id="loginMessage"></p>
+
+        <small>
+            MUST Biological Laboratory System
+        </small>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN SYSTEM ================= -->
+
+<div id="systemPage" class="system hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="small-logo">MUST</div>
+
+            <div>
+                <strong>MUST</strong>
+                <span>Specimen System</span>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <button class="nav-btn active" onclick="showPage('dashboard')">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-btn" onclick="showPage('specimens')">
+                🧬 Specimens
+            </button>
+
+            <button class="nav-btn" onclick="showPage('users')">
+                👥 Users
+            </button>
+
+            <button class="nav-btn" onclick="showPage('requests')">
+                📋 Requests
+            </button>
+
+            <button class="nav-btn" onclick="showPage('reports')">
+                📊 Reports
+            </button>
+
+        </nav>
+
+        <button class="logout" onclick="logout()">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+                <h2 id="pageTitle">Dashboard</h2>
+                <p>Biological Specimen Management System</p>
+            </div>
+
+            <div class="profile">
+
+                <div class="avatar">A</div>
+
+                <div>
+                    <strong id="currentUser">
+                        Administrator
+                    </strong>
+
+                    <span id="currentRole">
+                        Admin
+                    </span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard" class="page">
+
+            <div class="welcome">
+
+                <div>
+                    <h1>Welcome to MUST Specimen System</h1>
+
+                    <p>
+                        Manage biological specimens, laboratory users,
+                        practical requests and reports from one place.
+                    </p>
+                </div>
+
+                <div class="welcome-logo">
+                    MUST
+                </div>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-icon">🧬</div>
+                    <div>
+                        <span>Total Specimens</span>
+                        <h2 id="totalSpecimens">0</h2>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">✅</div>
+                    <div>
+                        <span>Available</span>
+                        <h2 id="availableSpecimens">0</h2>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⚠️</div>
+                    <div>
+                        <span>Low Stock</span>
+                        <h2 id="lowStock">0</h2>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <div>
+                        <span>System Users</span>
+                        <h2 id="totalUsers">0</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        <h3>Recent Specimens</h3>
+
+                        <button onclick="showPage('specimens')">
+                            View All
+                        </button>
+                    </div>
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Specimen</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="recentSpecimens"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>System Information</h3>
+
+                    <div class="info-list">
+
+                        <div>
+                            <span>University</span>
+                            <strong>MUST</strong>
+                        </div>
+
+                        <div>
+                            <span>Department</span>
+                            <strong>Biology Laboratory</strong>
+                        </div>
+
+                        <div>
+                            <span>System</span>
+                            <strong>Specimen Management</strong>
+                        </div>
+
+                        <div>
+                            <span>Version</span>
+                            <strong>1.0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SPECIMENS ================= -->
+
+        <section id="specimens" class="page hidden">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>Specimen Records</h2>
+                    <p>Manage all biological specimens.</p>
+                </div>
+
+                <button class="primary-btn" onclick="openSpecimenForm()">
+                    + Add Specimen
+                </button>
+
+            </div>
+
+
+            <div class="toolbar">
+
+                <input
+                    type="text"
+                    id="specimenSearch"
+                    placeholder="🔍 Search specimen..."
+                    onkeyup="displaySpecimens()"
+                >
+
+                <select id="categoryFilter" onchange="displaySpecimens()">
+
+                    <option value="">All Categories</option>
+                    <option value="Animal">Animal</option>
+                    <option value="Plant">Plant</option>
+                    <option value="Human Biology">Human Biology</option>
+                    <option value="Microbiology">Microbiology</option>
+                    <option value="Other">Other</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="specimenTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= USERS ================= -->
+
+        <section id="users" class="page hidden">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>System Users</h2>
+                    <p>Manage users and their roles.</p>
+                </div>
+
+                <button class="primary-btn" onclick="openUserForm()">
+                    + Add User
+                </button>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="userTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REQUESTS ================= -->
+
+        <section id="requests" class="page hidden">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>Specimen Requests</h2>
+                    <p>View and manage practical specimen requests.</p>
+                </div>
+
+                <button class="primary-btn" onclick="openRequestForm()">
+                    + New Request
+                </button>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Student</th>
+                                <th>Specimen</th>
+                                <th>Quantity</th>
+                                <th>Practical</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="requestTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REPORTS ================= -->
+
+        <section id="reports" class="page hidden">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>Reports</h2>
+                    <p>Generate and download specimen reports.</p>
+                </div>
+
+                <div class="report-buttons">
+
+                    <button class="primary-btn" onclick="downloadReport()">
+                        ⬇ Download CSV
+                    </button>
+
+                    <button class="secondary-btn" onclick="printReport()">
+                        🖨 Print Report
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+                    <span>Total Specimens</span>
+                    <h2 id="reportTotal">0</h2>
+                </div>
+
+                <div class="card">
+                    <span>Available</span>
+                    <h2 id="reportAvailable">0</h2>
+                </div>
+
+                <div class="card">
+                    <span>Unavailable</span>
+                    <h2 id="reportUnavailable">0</h2>
+                </div>
+
+                <div class="card">
+                    <span>Total Quantity</span>
+                    <h2 id="reportQuantity">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="panel report-area">
+
+                <div class="report-header">
+
+                    <div class="report-logo">MUST</div>
+
+                    <div>
+                        <h2>
+                            MUST Biological Specimen Management System
+                        </h2>
+
+                        <p>
+                            Biological Specimen Inventory Report
+                        </p>
+                    </div>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Specimen</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="reportTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= SPECIMEN MODAL ================= -->
+
+<div id="specimenModal" class="modal hidden">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="specimenModalTitle">
+                Add Specimen
+            </h2>
+
+            <button onclick="closeModal('specimenModal')">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="specimenForm">
+
+            <input type="hidden" id="specimenId">
+
+            <label>Specimen Name</label>
+
+            <input
+                type="text"
+                id="specimenName"
+                placeholder="e.g. Frog"
+                required
+            >
+
+
+            <label>Category</label>
+
+            <select id="specimenCategory" required>
+
+                <option value="">Select Category</option>
+                <option>Animal</option>
+                <option>Plant</option>
+                <option>Human Biology</option>
+                <option>Microbiology</option>
+                <option>Other</option>
+
+            </select>
+
+
+            <label>Quantity</label>
+
+            <input
+                type="number"
+                id="specimenQuantity"
+                min="0"
+                required
+            >
+
+
+            <label>Location</label>
+
+            <input
+                type="text"
+                id="specimenLocation"
+                placeholder="e.g. Biology Lab 1"
+                required
+            >
+
+
+            <label>Status</label>
+
+            <select id="specimenStatus">
+
+                <option>Available</option>
+                <option>Unavailable</option>
+
+            </select>
+
+
+            <label>Description</label>
+
+            <textarea
+                id="specimenDescription"
+                placeholder="Specimen description"
+            ></textarea>
+
+
+            <button class="primary-btn full-btn">
+                Save Specimen
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= USER MODAL ================= -->
+
+<div id="userModal" class="modal hidden">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="userModalTitle">
+                Add User
+            </h2>
+
+            <button onclick="closeModal('userModal')">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="userForm">
+
+            <input type="hidden" id="userId">
+
+            <label>Full Name</label>
+
+            <input
+                type="text"
+                id="userName"
+                required
+            >
+
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                id="userUsername"
+                required
+            >
+
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="userEmail"
+                required
+            >
+
+
+            <label>Role</label>
+
+            <select id="userRole">
+
+                <option>Admin</option>
+                <option>Laboratory Technician</option>
+                <option>Student</option>
+                <option>Lecturer</option>
+                <option>HOD</option>
+
+            </select>
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="userPassword"
+                placeholder="Password"
+                required
+            >
+
+
+            <button class="primary-btn full-btn">
+                Save User
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= REQUEST MODAL ================= -->
+
+<div id="requestModal" class="modal hidden">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2>New Specimen Request</h2>
+
+            <button onclick="closeModal('requestModal')">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="requestForm">
+
+            <label>Student Name</label>
+
+            <input
+                type="text"
+                id="requestStudent"
+                required
+            >
+
+
+            <label>Specimen</label>
+
+            <select id="requestSpecimen" required></select>
+
+
+            <label>Quantity</label>
+
+            <input
+                type="number"
+                id="requestQuantity"
+                min="1"
+                required
+            >
+
+
+            <label>Practical</label>
+
+            <input
+                type="text"
+                id="requestPractical"
+                placeholder="e.g. Biology Practical I"
+                required
+            >
+
+
+            <button class="primary-btn full-btn">
+                Submit Request
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
